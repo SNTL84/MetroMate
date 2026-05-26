@@ -1,179 +1,212 @@
 <div align="center">
 
-<!-- SVG LOGO -->
-<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="120" height="120" rx="24" fill="#01696F"/>
-  <rect x="20" y="30" width="80" height="50" rx="8" fill="none" stroke="#ffffff" stroke-width="3"/>
-  <circle cx="35" cy="88" r="8" fill="#ffffff"/>
-  <circle cx="85" cy="88" r="8" fill="#ffffff"/>
-  <rect x="20" y="78" width="80" height="10" fill="#01696F"/>
-  <rect x="28" y="38" width="20" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
-  <rect x="72" y="38" width="20" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
-  <path d="M50 45 L70 45" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-  <path d="M55 55 L65 55" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-</svg>
+# 🏙️ MetroMate
+### Residential Parking Management — Automated. Intelligent. Paperless.
 
-# 🚗 MetroMate
+[![Made by SNTL 84](https://img.shields.io/badge/Made%20by-SNTL%2084-01696f?style=for-the-badge&logo=github)](https://github.com/SNTL84)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gold?style=for-the-badge)](LICENSE)
+[![Agentic AI](https://img.shields.io/badge/Agentic-AI%20Workflow-d95f3b?style=for-the-badge)](https://desidevloper.com)
+[![Trilingual](https://img.shields.io/badge/Languages-EN%20%7C%20%E0%AA%97%E0%AB%81%20%7C%20%E0%A4%B9%E0%A4%BF-192840?style=for-the-badge)](#)
+[![ResidentialParking](https://img.shields.io/badge/Service-Residential%20Parking%20Mgmt-2a7a52?style=for-the-badge)](#)
 
-### **Residential Parking Management Services**
+> **Stop losing money on unregistered vehicles, sticker fraud & parking disputes.**
+> MetroMate automates the entire residential parking lifecycle — from digital registration to real-time dashboards — all via WhatsApp. No app installs. No paper. No excuses.
 
-> **⚡ Automate What's Costing You Money**
-
-[![Made by SNTL84](https://img.shields.io/badge/Made%20by-SNTL%2084-01696F?style=for-the-badge&logo=github)](https://github.com/SNTL84)
-[![Service](https://img.shields.io/badge/Service-ResidentialParkingMgmt-teal?style=for-the-badge)](https://desidevloper.com)
-[![Language](https://img.shields.io/badge/Language-HTML%20%7C%20JS%20%7C%20CSS-orange?style=for-the-badge)](https://github.com/SNTL84/MetroMate)
-[![Status](https://img.shields.io/badge/Status-Live%20%26%20Active-brightgreen?style=for-the-badge)](https://github.com/SNTL84/MetroMate)
-[![Location](https://img.shields.io/badge/Surat-Gujarat%2C%20India-blue?style=for-the-badge)](https://wa.me/919727413309)
-
----
-
-**MetroMate** is a zero-friction, agentic AI–powered parking & resident vehicle management system built for Indian residential societies. From digital vehicle registration to real-time parking slot compliance dashboards — all without a backend, without a database, and without the chaos of paper registers.
-
-[🌐 Website](https://desidevloper.com) · [💬 WhatsApp](https://wa.me/919727413309) · [🔗 LinkedIn](https://linkedin.com/in/sntl2784) · [📸 Instagram](https://www.instagram.com/desibiztrade) · [🔴 YouTube @SNTL84](https://youtube.com/@SNTL84)
+[📋 Vehicle Registration Form](./SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html) · [📊 Parking Dashboard (EN)](./SNTL-2784-Coral-Heights-A-building-May-2026-Vehicle-Count.html) · [📊 Parking Dashboard (ગુ)](./SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html) · [💬 WhatsApp](https://wa.me/919727413309)
 
 </div>
 
 ---
 
-## 🏢 What Is MetroMate?
+## 💸 The Problem That's Costing Your Society Money
 
-Housing societies across India lose thousands every year to **unregistered vehicles, parking disputes, and manual record chaos**. Committees spend hours reconciling spreadsheets. Residents lose stickers. Nobody knows who parked in Flat 302's slot.
+Every month, housing societies leak thousands of rupees in unregistered vehicles, missed sticker renewals, and parking disputes. Committee members spend hours chasing paper forms that never come back. Residents avoid registration because "the process is too complicated."
 
-**MetroMate fixes that.**
+**MetroMate kills all of that.**
 
-It is a suite of lightweight, offline-capable HTML tools that a society committee can deploy in minutes — no app store, no IT team, no monthly SaaS fees. Residents fill forms on their phones, submit via WhatsApp, and the committee gets a clean, printable master register.
-
-> Built with the **SNTL 84 philosophy**: automate the friction before it costs you money.
-
----
-
-## ✨ Features at a Glance
-
-| Feature | Detail |
+| Before MetroMate | After MetroMate |
 |---|---|
-| 📋 **Digital Vehicle Registration** | Multi-lingual form (English · Gujarati · Hindi) with WhatsApp submit |
-| 🚘 **4-Wheeler Tracking** | Registration number, make/model, size (big/small), sticker status |
-| 🛵 **2-Wheeler Tracking** | Up to 2 registration numbers per resident, model & sticker |
-| 🚲 **Bicycle Registry** | Kids / Teen / Adult size classification |
-| 📊 **Parking Compliance Dashboard** | Live overhead vs basement slot utilisation with deficit alert |
-| 🌐 **Bilingual Dashboard** | English + Gujarati resident vehicle master — same data, two languages |
-| 📱 **Mobile-First** | Designed for smartphone entry, no app install required |
-| 🔒 **Data Sovereignty** | All data stays in the committee's hands — no third-party cloud |
-| ⚡ **WhatsApp-Native Submit** | Form generates a structured WhatsApp message on tap |
-| 🖨️ **Print-Ready Register** | Clean table layout optimised for physical file archival |
+| Paper forms lost in letterboxes | Digital form, WhatsApp submission instant |
+| No-shows on physical copy collection | Committee gets a timestamped message record |
+| Unknown who owns which vehicle | Master register with reg numbers, models, colours |
+| Parking disputes with no audit trail | Full vehicle-to-flat mapping, exportable |
+| Trilingual residents struggle with English-only forms | English + Gujarati + Hindi in one form |
+| Manual count of cars vs. slots | Live deficit/surplus dashboard auto-calculates |
 
 ---
 
-## 📂 Repository Structure
+## ✨ What's Inside
+
+### 1. 📋 Vehicle Registration Form (Trilingual)
+**File:** [`SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html`](./SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html)
+
+A mobile-first, multi-step digital registration form that works on any smartphone browser — no app needed.
+
+- **3-language UI**: Every field label in English · ગુજરાતી · हिन्दी
+- **Smart sections**: Cars, Two-Wheelers, Bicycles with quantity spinners and YES/NO toggles
+- **Vehicle details capture**: Registration number, make/model, colour — per vehicle
+- **WhatsApp direct submit**: One tap sends a formatted message to the committee
+- **Review modal**: Resident sees the full summary before sending — zero errors
+- **Committee contacts**: President, Secretary, Treasurer — tap to WhatsApp or call
+- **Digital-first policy**: Accepted instantly; no delay waiting for paper copy
+- **Validation**: Flat number format, 10-digit mobile, required field checks
+
+### 2. 📊 Parking Master Dashboard (English)
+**File:** [`SNTL-2784-Coral-Heights-A-building-May-2026-Vehicle-Count.html`](./SNTL-2784-Coral-Heights-A-building-May-2026-Vehicle-Count.html)
+
+A live, auto-calculating parking intelligence dashboard for 42 flats across 11 floors.
+
+- **Parking capacity compliance**: Overhead (15) + Basement (9) = 24 total slots
+- **Real-time deficit alert**: Red card triggers if registered 4-wheelers exceed capacity
+- **BIG vs SMALL car tracking**: Slot assignment based on actual car size
+- **Full resident master table**: Sr. No · Owner/Rental badge · Flat · Name · Mobile · Car size · 4W count · Reg numbers · 2W count · Bicycles · Designation
+- **Designation tags**: President, Secretary, Treasurer highlighted with pill badges
+- **42 residents verified**: Owners and rentals clearly differentiated
+
+### 3. 📊 Parking Master Dashboard (ગુજરાતી / Gujarati)
+**File:** [`SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html`](./SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html)
+
+Identical dataset, fully rendered in Gujarati script — for committee members and residents who prefer Gujarati as their primary language. Complete parity with the English dashboard.
+
+---
+
+## 🗂️ Repository Structure
 
 ```
 MetroMate/
 │
-├── 📄 SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html
-│      └── Tri-lingual vehicle registration form · English primary
-│          Submit-via-WhatsApp · Section: Car · 2W · Bicycle
+├── 📋 SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html
+│   └── Trilingual resident vehicle registration form → WhatsApp submission
 │
 ├── 📊 SNTL-2784-Coral-Heights-A-building-May-2026-Vehicle-Count.html
-│      └── A-Wing master register (English)
-│          Live parking slot compliance counter (Overhead 15 + Basement 9 = 24 slots)
+│   └── English parking master dashboard — 42 flats, live deficit calculator
 │
 ├── 📊 SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html
-│      └── A-Wing master register (Gujarati / ગુજરાતી)
-│          Identical data structure · Native language presentation
+│   └── Gujarati parking master dashboard — same dataset, Gujarati script
 │
 └── README.md
 ```
 
----
-
-## 🚀 Quick Start — Deploy in 5 Minutes
-
-**For Society Committees:**
-
-1. **Download** the registration form HTML file
-2. **Host it free** on [GitHub Pages](https://pages.github.com/) or share via WhatsApp as a file
-3. **Residents open** the link on their phone → fill the form → tap **Send on WhatsApp**
-4. **Committee updates** the Vehicle Count master register with submitted data
-5. **Print** the master register for physical records or committee meetings
-
-**No server. No database. No login required.**
+> **Naming convention:** `SNTL-{ID}-{Society}-{Building}-{Month-Year}-{Type}.html`
+> Sortable, society-specific, and version-safe across all deployments.
 
 ---
 
-## 📐 Parking Compliance Logic
+## 🚀 How to Deploy in Your Society — 5 Minutes Flat
 
-MetroMate auto-calculates parking deficit in real time:
+```bash
+# 1. Clone the repo
+git clone https://github.com/SNTL84/MetroMate.git
 
-```
-Coral Heights A-Wing Capacity
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Overhead Parking   :  15 slots
-  Basement Parking   :   9 slots
-                       ─────────
-  Total Car Slots    :  24 slots
+# 2. Open the registration form in any browser
+open SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html
 
-  Registered 4W      :  [live count]
-  Deficit / Surplus  :  [auto-calculated]
+# 3. Share the file link with residents via WhatsApp broadcast
+# Host on GitHub Pages, Netlify, or any static host for a permanent URL
+
+# 4. As registrations come in via WhatsApp, update the dashboard dataset
+# Edit the residentsData array in the dashboard HTML
+
+# 5. Share the dashboard link with your committee
 ```
 
-A **positive deficit** means over-capacity — the committee gets a visual alert to act before disputes arise.
+**No server. No database. No monthly costs.** Pure HTML — runs everywhere.
 
 ---
 
-## 🌍 Multi-Language Support
+## 🔁 The Agentic Automation Flow
 
-| Language | Form | Dashboard |
+```
+Resident opens form (mobile browser)
+        ↓
+Fills flat number · name · contact · vehicles
+        ↓
+Taps "Review & Send on WhatsApp"
+        ↓
+WhatsApp opens with pre-filled structured message
+        ↓
+Resident taps Send → Committee WhatsApp receives instantly
+        ↓
+Committee updates master dashboard dataset
+        ↓
+Parking deficit/surplus recalculates automatically
+        ↓
+Monthly audit: dashboard screenshot → society minutes
+```
+
+---
+
+## 📐 Technical Architecture
+
+| Layer | Technology | Why |
 |---|---|---|
-| 🇬🇧 English | ✅ Primary | ✅ Full |
-| 🇮🇳 Gujarati (ગુજરાતી) | ✅ Inline labels | ✅ Dedicated file |
-| 🇮🇳 Hindi (हिंदी) | ✅ Inline labels | 🔜 Coming soon |
+| **UI** | Pure HTML5 + CSS3 + Vanilla JS | Zero dependencies, works offline, no CDN failures |
+| **Fonts** | Google Fonts: Cormorant Garamond + Outfit | Premium typography, fast load |
+| **Multilingual** | Noto Sans Gujarati + Noto Sans Devanagari | Native script rendering on all devices |
+| **Submission** | WhatsApp `wa.me` deep link + `encodeURIComponent` | No backend needed — WhatsApp is the database |
+| **Icons** | Inline SVG | Zero external icon library requests |
+| **Data** | JS array literal in HTML | Single-file, zero-dependency dashboard |
+| **Responsive** | CSS Grid + Flexbox + `clamp()` | Works on 375px phones to 1600px monitors |
+| **Accessibility** | Semantic HTML, ARIA labels, focus rings | Keyboard navigable, screen reader compatible |
 
 ---
 
-## 🛠️ Tech Stack
+## 🌐 Use Cases Beyond Coral Heights
 
+MetroMate is a **template system**. Duplicate and configure for:
+
+- 🏢 Any residential society — change the `residentsData` array
+- 🏬 Commercial building parking management
+- 🏫 School/college vehicle gate passes
+- 🏥 Hospital staff parking registers
+- 🏗️ Builder possession handover vehicle surveys
+- 🏨 Gated community visitor vehicle logs
+
+---
+
+## 🔧 Customisation Guide
+
+### Change the Society / WhatsApp Number
+```javascript
+// In the registration form HTML, find:
+document.getElementById('waLink').href = `https://wa.me/919727413309?text=${encoded}`;
+// Replace 919727413309 with your committee WhatsApp number
+
+// In committee cards, update:
+href="https://wa.me/91XXXXXXXXXX"
 ```
-Frontend  →  Pure HTML5 · CSS3 · Vanilla JavaScript
-Submit    →  WhatsApp Web API (wa.me deep-link)
-Hosting   →  GitHub Pages / Any static host
-Data      →  Committee-managed (no backend required)
-Forms     →  Progressive disclosure · Mobile-first · Touch-optimised
+
+### Add a New Resident to the Dashboard
+```javascript
+// In the dashboard HTML, add to the residentsData array:
+{
+  sr: 43, ownerType: 'Owner', flat: '1201', name: 'Your Resident Name',
+  mobile: '98XXXXXXXX', carSize: 'BIG', fourWCount: 1,
+  fourReg: 'GJ-05-XX-0000', fourSticker: '',
+  twoWCount: 1, twoReg1: 'GJ-05-YY-1111', twoReg2: '', twoSticker: '',
+  bicycle: 0, designation: ''
+}
+```
+
+### Change Parking Capacity
+```javascript
+// Dashboard HTML — update these two constants:
+const OVERHEAD_SLOTS = 15;  // Overhead parking slots
+const BASEMENT_SLOTS = 9;   // Basement parking slots
+// Total will auto-recalculate
 ```
 
 ---
 
-## 🗺️ Roadmap
+## 👤 Built by SNTL 84
 
-- [ ] **B & C Wing** registration forms and master registers
-- [ ] **Sticker Management** — issue, track, and revoke parking stickers digitally
-- [ ] **Google Sheets Integration** — auto-populate master register from WhatsApp submissions via n8n
-- [ ] **QR Code Entry** — vehicle entry/exit log tied to registered number plates
-- [ ] **Multi-Society SaaS** — white-label MetroMate for property management companies
-- [ ] **Hindi dedicated dashboard** — complete the tri-lingual suite
-- [ ] **PDF Export** — one-click printable compliance report for AGM/committee meetings
+**Automate What's Costing You Money**
 
----
+`SNTL 84` · Agentic AI Workflow Professional
 
-## 👤 About SNTL 84 — Golden Lotus
+Specialising in: **Lead Generation · Fulfillment Automation · Bench Resource Availability · Full-Stack Builds · AI Workflows · Supply Chain Business Intelligence**
 
-<div align="center">
-
-**SNTL 84** is the agentic AI workflow brand of **Golden Lotus**, a full-stack builder & automation specialist based in **Surat, Gujarat, India**.
-
-*Building systems that automate what's costing you money.*
-
-</div>
-
-### Services
-
-- 🤖 **AI Workflows** — n8n, agentic pipelines, LLM-powered automation
-- 🧲 **Lead Generation** — FMCG, B2B, supply chain intelligence
-- 🏗️ **Full-Stack Builds** — Next.js, React, HTML/CSS/JS, Vercel deployments
-- 📦 **Fulfillment Automation** — order, inventory & dispatch workflow systems
-- 🧑‍💼 **Bench Resource Availability** — hiring system & talent pipeline automation
-- 🏢 **Residential Services** — MetroMate parking management (this repo)
-
-### Connect
+Follow for practical AI automation insights & founder systems.
 
 | Platform | Link |
 |---|---|
@@ -184,32 +217,27 @@ Forms     →  Progressive disclosure · Mobile-first · Touch-optimised
 | 📸 Instagram | [@desibiztrade](https://www.instagram.com/desibiztrade) |
 | 🔴 YouTube | [@SNTL84](https://youtube.com/@SNTL84) |
 
----
-
-## 🤝 Contributing
-
-MetroMate is open for society-specific customisations. If your housing society wants a branded version:
-
-1. **Fork** this repository
-2. **Replace** society name, wing labels, and parking slot counts
-3. **Deploy** on GitHub Pages (free)
-4. Or **reach out on WhatsApp** — [wa.me/919727413309](https://wa.me/919727413309) — for a fully customised build
+> 🚀 **If this saved your society time or money, star it ⭐ and share it with other housing societies.** That's the only metric that matters here.
 
 ---
 
-## 📄 License
+## 📄 Licence
 
-This project is released under the **MIT License**. Use freely, credit appreciated.
+MIT — Free to use, adapt, and deploy for your society or clients. Attribution appreciated.
+
+```
+Copyright (c) 2026 SNTL 84 | desidevloper.com
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, subject to the above copyright notice.
+```
 
 ---
 
 <div align="center">
 
-**⚡ Automate What's Costing You Money**
+**MetroMate** · Residential Parking Management · Built by [SNTL 84](https://github.com/SNTL84)
 
-*MetroMate by SNTL 84 · Surat, Gujarat, India · May 2026*
-
-[![GitHub Stars](https://img.shields.io/github/stars/SNTL84/MetroMate?style=social)](https://github.com/SNTL84/MetroMate)
-[![GitHub Forks](https://img.shields.io/github/forks/SNTL84/MetroMate?style=social)](https://github.com/SNTL84/MetroMate)
+*Automate What's Costing You Money*
 
 </div>

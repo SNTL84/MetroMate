@@ -6,7 +6,7 @@
 [![Made by SNTL 84](https://img.shields.io/badge/Made%20by-SNTL%2084-01696f?style=for-the-badge&logo=github)](https://github.com/SNTL84)
 [![License: MIT](https://img.shields.io/badge/License-MIT-gold?style=for-the-badge)](LICENSE)
 [![Agentic AI](https://img.shields.io/badge/Agentic-AI%20Workflow-d95f3b?style=for-the-badge)](https://desidevloper.com)
-[![Trilingual](https://img.shields.io/badge/Languages-EN%20%7C%20%E0%AA%97%E0%AB%81%20%7C%20%E0%A4%B9%E0%A4%BF-192840?style=for-the-badge)](#)
+[![Trilingual](https://img.shields.io/badge/Languages-EN%20%7C%20ગુ%20%7C%20हि-192840?style=for-the-badge)](#)
 [![ResidentialParking](https://img.shields.io/badge/Service-Residential%20Parking%20Mgmt-2a7a52?style=for-the-badge)](#)
 
 > **Stop losing money on unregistered vehicles, sticker fraud & parking disputes.**
@@ -18,6 +18,14 @@
 
 ---
 
+## 🖼️ MetroMate in Action
+
+![MetroMate 3-in-1 Services — On-Demand Companion | Gujarati | SNTL 84 Growth Engine](./assets/3in1-Metro-mate-git-services-image.jpg)
+
+> *Left: English On-Demand Companion Service · Centre: Gujarati Shopping Assistant · Right: SNTL 84 Growth Engine*
+
+---
+
 ## 💸 The Problem That's Costing Your Society Money
 
 Every month, housing societies leak thousands of rupees in unregistered vehicles, missed sticker renewals, and parking disputes. Committee members spend hours chasing paper forms that never come back. Residents avoid registration because "the process is too complicated."
@@ -26,12 +34,12 @@ Every month, housing societies leak thousands of rupees in unregistered vehicles
 
 | Before MetroMate | After MetroMate |
 |---|---|
-| Paper forms lost in letterboxes | Digital form, WhatsApp submission instant |
-| No-shows on physical copy collection | Committee gets a timestamped message record |
-| Unknown who owns which vehicle | Master register with reg numbers, models, colours |
-| Parking disputes with no audit trail | Full vehicle-to-flat mapping, exportable |
-| Trilingual residents struggle with English-only forms | English + Gujarati + Hindi in one form |
-| Manual count of cars vs. slots | Live deficit/surplus dashboard auto-calculates |
+| 📄 Paper forms lost in letterboxes | ✅ Digital form, WhatsApp submission instant |
+| 🚫 No-shows on physical copy collection | ✅ Committee gets a timestamped message record |
+| ❓ Unknown who owns which vehicle | ✅ Master register with reg numbers, models, colours |
+| ⚠️ Parking disputes with no audit trail | ✅ Full vehicle-to-flat mapping, exportable |
+| 🌐 Trilingual residents struggle with English-only forms | ✅ English + Gujarati + Hindi in one form |
+| 🔢 Manual count of cars vs. slots | ✅ Live deficit/surplus dashboard auto-calculates |
 
 ---
 
@@ -48,7 +56,6 @@ A mobile-first, multi-step digital registration form that works on any smartphon
 - **WhatsApp direct submit**: One tap sends a formatted message to the committee
 - **Review modal**: Resident sees the full summary before sending — zero errors
 - **Committee contacts**: President, Secretary, Treasurer — tap to WhatsApp or call
-- **Digital-first policy**: Accepted instantly; no delay waiting for paper copy
 - **Validation**: Flat number format, 10-digit mobile, required field checks
 
 ### 2. 📊 Parking Master Dashboard (English)
@@ -66,7 +73,7 @@ A live, auto-calculating parking intelligence dashboard for 42 flats across 11 f
 ### 3. 📊 Parking Master Dashboard (ગુજરાતી / Gujarati)
 **File:** [`SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html`](./SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html)
 
-Identical dataset, fully rendered in Gujarati script — for committee members and residents who prefer Gujarati as their primary language. Complete parity with the English dashboard.
+Identical dataset, fully rendered in Gujarati script — for committee members and residents who prefer Gujarati. Complete parity with the English dashboard.
 
 ---
 
@@ -83,6 +90,9 @@ MetroMate/
 │
 ├── 📊 SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html
 │   └── Gujarati parking master dashboard — same dataset, Gujarati script
+│
+├── 🖼️ assets/
+│   └── 3in1-Metro-mate-git-services-image.jpg  ← MetroMate 3-in-1 services banner
 │
 └── README.md
 ```
@@ -107,7 +117,7 @@ open SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html
 # 4. As registrations come in via WhatsApp, update the dashboard dataset
 # Edit the residentsData array in the dashboard HTML
 
-# 5. Share the dashboard link with your committee
+# 5. Share the dashboard link with the committee
 ```
 
 **No server. No database. No monthly costs.** Pure HTML — runs everywhere.
@@ -171,9 +181,6 @@ MetroMate is a **template system**. Duplicate and configure for:
 // In the registration form HTML, find:
 document.getElementById('waLink').href = `https://wa.me/919727413309?text=${encoded}`;
 // Replace 919727413309 with your committee WhatsApp number
-
-// In committee cards, update:
-href="https://wa.me/91XXXXXXXXXX"
 ```
 
 ### Add a New Resident to the Dashboard
@@ -182,15 +189,13 @@ href="https://wa.me/91XXXXXXXXXX"
 {
   sr: 43, ownerType: 'Owner', flat: '1201', name: 'Your Resident Name',
   mobile: '98XXXXXXXX', carSize: 'BIG', fourWCount: 1,
-  fourReg: 'GJ-05-XX-0000', fourSticker: '',
-  twoWCount: 1, twoReg1: 'GJ-05-YY-1111', twoReg2: '', twoSticker: '',
-  bicycle: 0, designation: ''
+  fourReg: 'GJ-05-XX-0000', twoWCount: 1,
+  twoReg1: 'GJ-05-YY-1111', bicycle: 0, designation: ''
 }
 ```
 
 ### Change Parking Capacity
 ```javascript
-// Dashboard HTML — update these two constants:
 const OVERHEAD_SLOTS = 15;  // Overhead parking slots
 const BASEMENT_SLOTS = 9;   // Basement parking slots
 // Total will auto-recalculate
@@ -206,7 +211,7 @@ const BASEMENT_SLOTS = 9;   // Basement parking slots
 
 Specialising in: **Lead Generation · Fulfillment Automation · Bench Resource Availability · Full-Stack Builds · AI Workflows · Supply Chain Business Intelligence**
 
-Follow for practical AI automation insights & founder systems.
+🚀 Follow for practical AI automation insights & founder systems.
 
 | Platform | Link |
 |---|---|
@@ -217,7 +222,7 @@ Follow for practical AI automation insights & founder systems.
 | 📸 Instagram | [@desibiztrade](https://www.instagram.com/desibiztrade) |
 | 🔴 YouTube | [@SNTL84](https://youtube.com/@SNTL84) |
 
-> 🚀 **If this saved your society time or money, star it ⭐ and share it with other housing societies.** That's the only metric that matters here.
+> 🚀 **If this repo saved your society time or money, star it ⭐ and share it with other housing societies.** That's the only metric that matters here.
 
 ---
 
@@ -227,9 +232,6 @@ MIT — Free to use, adapt, and deploy for your society or clients. Attribution 
 
 ```
 Copyright (c) 2026 SNTL 84 | desidevloper.com
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, subject to the above copyright notice.
 ```
 
 ---

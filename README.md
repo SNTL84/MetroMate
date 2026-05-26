@@ -14,15 +14,11 @@
 
 [📋 Vehicle Registration Form](./SNTL-84-Coral-Hieghts-Vehicle-Registration-Form-Englsh-May-2026.html) · [📊 Parking Dashboard (EN)](./SNTL-2784-Coral-Heights-A-building-May-2026-Vehicle-Count.html) · [📊 Parking Dashboard (ગુ)](./SNTL-2784-Gujarati-Coral-Heights-A-building-May-2026-Vehicle-Count.html) · [💬 WhatsApp](https://wa.me/919727413309)
 
-</div>
-
 ---
 
-## 🖼️ MetroMate in Action
+![MetroMate — On-Demand Companion Service | ઓન-ડિમાન્ડ શોપિંગ સાથીદાર | SNTL 84 Growth Engine](https://raw.githubusercontent.com/SNTL84/MetroMate/main/assets/MetroMate%203in1%20servicepng.png)
 
-![MetroMate 3-in-1 Services — On-Demand Companion | Gujarati | SNTL 84 Growth Engine](./assets/3in1-Metro-mate-git-services-image.jpg)
-
-> *Left: English On-Demand Companion Service · Centre: Gujarati Shopping Assistant · Right: SNTL 84 Growth Engine*
+</div>
 
 ---
 
@@ -92,7 +88,8 @@ MetroMate/
 │   └── Gujarati parking master dashboard — same dataset, Gujarati script
 │
 ├── 🖼️ assets/
-│   └── 3in1-Metro-mate-git-services-image.jpg  ← MetroMate 3-in-1 services banner
+│   ├── MetroMate 3in1 servicepng.png   ← Full-res 3-in-1 services banner (2.5MB)
+│   └── 3in1-Metro-mate-git-services-image.jpg
 │
 └── README.md
 ```

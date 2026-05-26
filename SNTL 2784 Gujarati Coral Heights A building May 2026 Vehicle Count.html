@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>કોરલ હાઇટ્સ – A ઇમારત | વાહન અને પાર્કિંગ નોંધણી (અપડેટેડ)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f8;
+      font-family: 'Segoe UI', 'Noto Sans Gujarati', 'Gujarati', 'Inter', system-ui, sans-serif;
+      padding: 28px 24px;
+      color: #1a2c3e;
+    }
+
+    .dashboard-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* HEADER SECTION */
+    .parking-header {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4a5f 100%);
+      border-radius: 32px;
+      padding: 24px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      padding-bottom: 12px;
+    }
+
+    .header-title h1 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title h1 span {
+      background: #f5b042;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 40px;
+      color: #1e2f3a;
+    }
+
+    .date-badge {
+      background: rgba(255,255,240,0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #eef4ff;
+    }
+
+    .parking-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 12px;
+      justify-content: space-between;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 16px 24px;
+      flex: 1 1 150px;
+      border: 1px solid rgba(255,255,245,0.2);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      color: #b9dfee;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat-sub {
+      font-size: 0.75rem;
+      color: #cbdbe6;
+    }
+
+    .alert-deficit {
+      background: #d9534fdd;
+      border-left: 5px solid #ffb347;
+    }
+
+    .stat-card.over-capacity {
+      background: #c4453fcc;
+    }
+
+    hr {
+      margin: 18px 0 0;
+      border-color: rgba(255,255,210,0.2);
+    }
+
+    /* DATA CARD */
+    .data-card {
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .table-header {
+      padding: 18px 24px 8px 24px;
+      background: #ffffffdd;
+      border-bottom: 2px solid #e9edf2;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .table-header h3 {
+      font-size: 1.25rem;
+      color: #1e4663;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .record-stats {
+      background: #eef2f7;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f5e7e;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      padding: 0 0 6px 0;
+      scrollbar-width: thin;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      min-width: 1300px;
+    }
+
+    th {
+      background: #f8fafd;
+      color: #1f4662;
+      font-weight: 700;
+      padding: 14px 10px;
+      border-bottom: 2px solid #dce5ec;
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #eef2f6;
+      text-align: center;
+      color: #1f2f3c;
+      font-size: 0.76rem;
+      background-color: white;
+    }
+
+    tr:hover td {
+      background-color: #fafcff;
+    }
+
+    .owner-badge {
+      background: #e1f0fa;
+      color: #0a5d8c;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      display: inline-block;
+    }
+
+    .rental-badge {
+      background: #fff0db;
+      color: #b45f1b;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+    }
+
+    .designation-tag {
+      background: #ede7f6;
+      color: #4a2e7a;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border-radius: 16px;
+      padding: 2px 8px;
+      display: inline-block;
+    }
+
+    .footer-note {
+      background: #fef9e6;
+      margin-top: 24px;
+      padding: 14px 24px;
+      border-radius: 28px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b4e2e;
+      border: 1px solid #ffe2b5;
+    }
+
+    /* Credits style */
+    .credits-line {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,210,0.2);
+      font-size: 0.65rem;
+      color: #bbd4e5;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .credits-line a {
+      color: #f5b042;
+      text-decoration: none;
+    }
+    .credits-line a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 750px) {
+      body { padding: 18px 14px; }
+      .stat-value { font-size: 1.5rem; }
+      .stat-card { padding: 12px 16px; }
+      .header-title h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="dashboard-container">
+  <!-- ગુજરાતી હેડર: કોરલ હાઇટ્સ – A ઇમારત -->
+  <div class="parking-header">
+    <div class="header-title">
+      <h1>
+        🏢 કોરલ હાઇટ્સ – A ઇમારત · નોંધણી 
+        <span>અંતિમ મે 2026</span>
+      </h1>
+      <div class="date-badge">📅 છેલ્લી સબમિશન · સુધારેલ ફોર્મેટ</div>
+    </div>
+
+    <div class="parking-stats" id="parkingStatsContainer">
+      <!-- આંકડાકીય માહિતી ગુજરાતીમાં દેખાશે -->
+    </div>
+    <hr />
+    <div style="font-size:0.7rem; color:#b9dfee; margin-top:14px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+      <span>🔒 સત્તાવાર રહેવાસી માહિતી · કોરલ હાઇટ્સ A વિભાગ · મે 2026 (ફ્લેટ 701 અપડેટેડ)</span>
+      <span>🚗 કાર પાર્કિંગ: ઉપર <strong>15</strong> + ભોંયરું <strong>9</strong> = કુલ <strong>24</strong> સ્લોટ | મોટી/નાની કારની વાસ્તવિક સંખ્યા ઉપર દર્શાવેલ</span>
+    </div>
+    <!-- CREDITS SECTION -->
+    <div class="credits-line">
+      ⚡ Automate What’s Costing You Money | <strong>SNTL 84</strong> | Agentic AI Workflow Professional<br>
+      Lead Generation, Fulfillment Automation, Bench Resource Availability, Full‑Stack Builds, AI Workflows, Supply Chain BI.<br>
+      🚀 Follow for practical AI automation insights & founder systems.<br>
+      🌐 <a href="https://desidevloper.com" target="_blank">desidevloper.com</a> 💬 <a href="https://wa.me/919727413309" target="_blank">WA: wa.me/919727413309</a> 🔗 <a href="https://linkedin.com/in/sntl2784" target="_blank">linkedin.com/in/sntl2784</a><br>
+      💻 <a href="https://github.com/SNTL84" target="_blank">github.com/SNTL84</a> 📸 <a href="https://www.instagram.com/desibiztrade" target="_blank">instagram.com/desibiztrade</a> 🔴 <a href="https://youtube.com/@SNTL84" target="_blank">YouTube @SNTL84</a>
+    </div>
+  </div>
+
+  <!-- ડેટા ટેબલ -->
+  <div class="data-card">
+    <div class="table-header">
+      <h3>📋 રહેવાસી અને વાહન માસ્ટર <span style="font-size:0.7rem; background:#eef2f7; padding:2px 10px; border-radius:40px;">ચોક્કસ કૉલમ ગોઠવણી</span></h3>
+      <div class="record-stats" id="rowCounterDisplay"></div>
+    </div>
+    <div class="table-wrapper">
+      <table id="vehicleMasterTable">
+        <thead>
+          <tr>
+            <th>ક્રમ</th><th>માલિક/<br>ભાડુ</th><th>ફ્લેટ નં.</th><th>નામ</th><th>મોબાઇલ</th>
+            <th>કાર સાઇઝ</th>
+            <th>4પૈડા ગણતરી</th><th>4પૈડા રેજી.નં.</th><th>4પૈડા સ્ટીકર</th>
+            <th>2પૈડા ગણતરી</th><th>2પૈડા રેજી.1</th><th>2પૈડા રેજી.2</th><th>2પૈડા સ્ટીકર</th>
+            <th>સાઇકલ</th><th>હોદ્દો</th>
+          </tr>
+        </thead>
+        <tbody id="dynamicTableBody">
+          <!-- જાવાસ્ક્રિપ્ટ દ્વારા ભરવામાં આવશે -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="footer-note">
+    📊 <strong>પાર્કિંગ ક્ષમતા અનુપાલન (કોરલ હાઇટ્સ A)</strong> : ઉપર = <strong>15</strong> | ભોંયરું = <strong>9</strong> → કુલ કાર સ્લોટ = <strong>24</strong><br>
+    🚘 નોંધાયેલ 4-પૈડા: <span id="totalCarsDisplaySpan">--</span> &nbsp;|&nbsp; 
+    🛵 2-પૈડા: <span id="totalTwoWheelersSpan">--</span> &nbsp;|&nbsp;
+    🚲 સાઇકલ: <span id="totalBicyclesSpan">--</span><br>
+    🚨 <strong>કાર પાર્કિંગની ખાધ: <span id="deficitSpan">--</span> સ્લોટ</strong> (જો વધારે હોય તો). બધો ડેટા લૉક અને ચકાસાયેલ.
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // અપડેટેડ ડેટા: ફ્લેટ 701 (ક્રમ 23) માટે ફેરફાર કર્યા
+  // 4 wheeler: GJ-05-RY-4696, 2 wheeler: 2 (GJ-05-NE-7837, GJ-05-ES-5467), bicycle: 1
+  // બાકીનો બધો ડેટા યથાવત
+  // ============================================================
+  const residentsData = [
+    {sr:1, ownerType:"Owner", flat:"101", name:"Kirti Miyani", mobile:"9023066304", carSize:"BIG", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:2, designation:""},
+    {sr:2, ownerType:"Rental", flat:"102", name:"Yash Parmar ( Rental )", mobile:"7016381856", carSize:"BIG", fourWCount:1, fourReg:"GJ-07-D7-559", fourSticker:"", twoWCount:2, twoReg1:"GJ-07-CS-8000", twoReg2:"GJ-07-BP-3188", twoSticker:"", bicycle:0, designation:""},
+    {sr:3, ownerType:"Owner", flat:"201", name:"Ramesh B Nabde", mobile:"9924300551", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-JB-9869", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-FE-3464", twoReg2:"GJ-05-TR-0870", twoSticker:"", bicycle:1, designation:""},
+    {sr:4, ownerType:"Owner", flat:"202", name:"Sanjeev Upadhyay", mobile:"9978888803", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-TL-9623", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-CS-1380", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:5, ownerType:"Owner", flat:"203", name:"Hasmukh Pandya", mobile:"9824937107", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-JC-8741", fourSticker:"", twoWCount:3, twoReg1:"GJ-05-KC-6284", twoReg2:"GP-05-LP-2109", twoSticker:"", bicycle:0, designation:""},
+    {sr:6, ownerType:"Rental", flat:"204", name:"Mahdav Mohan", mobile:"7090177484", carSize:"BIG", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:7, ownerType:"Owner", flat:"301", name:"Herin", mobile:"9033900988", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RL-5326", fourSticker:"", twoWCount:2, twoReg1:"GJ-05--TY-3959", twoReg2:"GJ-05-NR-8171", twoSticker:"", bicycle:1, designation:""},
+    {sr:8, ownerType:"Owner", flat:"302", name:"Bharti Khodiyar", mobile:"6353646947", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-IN-6683", twoReg2:"GJ-05-CS-5622", twoSticker:"", bicycle:1, designation:""},
+    {sr:9, ownerType:"Owner", flat:"303", name:"Nitin Patel", mobile:"9898914974", carSize:"", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"GJ-02-EK-3689", twoReg2:"GJ-02-BG-1448", twoSticker:"", bicycle:1, designation:""},
+    {sr:10, ownerType:"Rental", flat:"304", name:"Jay Suthar", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:11, ownerType:"Owner", flat:"401", name:"Sagar Hirani", mobile:"9727039796", carSize:"BIG", fourWCount:1, fourReg:"GJ-07-DA-8285", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-KH-4106", twoReg2:"GJ-05-5G-3163", twoSticker:"", bicycle:2, designation:"Secretary"},
+    {sr:12, ownerType:"Owner", flat:"402", name:"Nilam Y Mistry", mobile:"9904441803", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RN-1353", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-5T-9897", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:13, ownerType:"Owner", flat:"403", name:"Deepak Bhawnani", mobile:"9377168666", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RW-1433", fourSticker:"", twoWCount:3, twoReg1:"GJ05-NY-9075", twoReg2:"GJ-05-MK-1405", twoSticker:"", bicycle:1, designation:""},
+    {sr:14, ownerType:"Owner", flat:"404", name:"Nishank Tailor", mobile:"9033112122", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RG-3680", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-GS-4315", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:15, ownerType:"Owner", flat:"501", name:"Jessy Verghese", mobile:"9821613318", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-PG-3280", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:16, ownerType:"Rental", flat:"502", name:"Viral Patel ( Rental )", mobile:"9638887171", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"MH-02-MS-4209", twoReg2:"GJ-05-RC-2389", twoSticker:"", bicycle:1, designation:""},
+    {sr:17, ownerType:"Owner", flat:"503", name:"Ranjay Kumar", mobile:"9558109884", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-RF-5889", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-MD-6401", twoReg2:"", twoSticker:"", bicycle:3, designation:""},
+    {sr:18, ownerType:"Owner", flat:"504", name:"Dhanraj Banvani", mobile:"9879084345", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-RJ-7082", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-CS-5125", twoReg2:"GJ-05-CS-9584", twoSticker:"", bicycle:1, designation:""},
+    {sr:19, ownerType:"Owner", flat:"601", name:"Prakash Bhai", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:20, ownerType:"Owner", flat:"602", name:"Kirit R Dandwani", mobile:"9275220304", carSize:"SMALL", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:21, ownerType:"Owner", flat:"603", name:"Rupesh Jethwani", mobile:"9376722228", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:3, twoReg1:"GJ-05-HL-6404", twoReg2:"GJ-05-RP6406", twoSticker:"", bicycle:1, designation:""},
+    {sr:22, ownerType:"Owner", flat:"604", name:"Rishikesh Kumar", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    // ***** FLAT 701 (Sr No 23) UPDATED *****
+    {sr:23, ownerType:"Owner", flat:"701", name:"K Joshi", mobile:"7600523800", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-RY-4696", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-NE-7837", twoReg2:"GJ-05-ES-5467", twoSticker:"", bicycle:1, designation:""},
+    // **************************************
+    {sr:24, ownerType:"Owner", flat:"702", name:"Daksha B Pandya", mobile:"9825045486", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-RP-9666", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-PH-0999", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:25, ownerType:"Owner", flat:"703", name:"Ram Manglani", mobile:"8118830652", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-LT-5362", twoReg2:"", twoSticker:"", bicycle:2, designation:""},
+    {sr:26, ownerType:"Owner", flat:"704", name:"Rajesh Singh Chauhan", mobile:"9879590254", carSize:"BIG", fourWCount:1, fourReg:"GJ-03-LM6074", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-PQ7864", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:27, ownerType:"Owner", flat:"801", name:"Bhupendra C Cyclewala", mobile:"9879522222", carSize:"", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:3, twoReg1:"GJ-05-PY-4286", twoReg2:"GJ-05-5H-4922", twoSticker:"", bicycle:0, designation:""},
+    {sr:28, ownerType:"Rental", flat:"802", name:"Rohit Patel", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:29, ownerType:"Owner", flat:"803", name:"Jayesh", mobile:"8866446912", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"GJ-11-AL6176", twoReg2:"GJ-11-AP-6093", twoSticker:"", bicycle:0, designation:""},
+    {sr:30, ownerType:"Owner", flat:"804", name:"Devika Pandav", mobile:"9909922343", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-JN-7016", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-TZ-5372", twoReg2:"GJ-05-CS-8941", twoSticker:"", bicycle:1, designation:""},
+    {sr:31, ownerType:"Owner", flat:"901", name:"Sunny Keswani", mobile:"8306178001", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-JV-7532", fourSticker:"", twoWCount:3, twoReg1:"GJ-05-NV-6992", twoReg2:"GJ-05-MR-4145", twoSticker:"", bicycle:0, designation:""},
+    {sr:32, ownerType:"Owner", flat:"902", name:"Mehul M Joshi", mobile:"9898716699", carSize:"SMALL", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:2, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:1, designation:"Treasurer"},
+    {sr:33, ownerType:"Owner", flat:"903", name:"Rakesh R Patel", mobile:"9825303960", carSize:"BIG", fourWCount:1, fourReg:"GJ-05-RE-8149", fourSticker:"", twoWCount:3, twoReg1:"GJ-16-AE-8177", twoReg2:"GJ-05-FV-3562", twoSticker:"", bicycle:1, designation:"President"},
+    {sr:34, ownerType:"Owner", flat:"904", name:"Bharat Painter", mobile:"9898716699", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RJ-8525", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-LP-4178", twoReg2:"GJ-05-MK-3353", twoSticker:"", bicycle:0, designation:""},
+    {sr:35, ownerType:"Owner", flat:"1001", name:"Ketan a Chuncha", mobile:"99790191997", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-RG-9106", fourSticker:"", twoWCount:3, twoReg1:"GJ-05-PJ-7012", twoReg2:"GJ-05-SU-0460", twoSticker:"", bicycle:3, designation:""},
+    {sr:36, ownerType:"Owner", flat:"1002", name:"Purninma Soni", mobile:"9727413309", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-CS-2709", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:37, ownerType:"Owner", flat:"1003", name:"Rajesh Vaghani", mobile:"7874301829", carSize:"SMALL", fourWCount:1, fourReg:"GJ-05-JC-7762", fourSticker:"", twoWCount:2, twoReg1:"GJ-05-MA-3927", twoReg2:"GJ-05-CS-1041", twoSticker:"", bicycle:1, designation:""},
+    {sr:38, ownerType:"Owner", flat:"1004", name:"Viralben R Thakore", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:39, ownerType:"Owner", flat:"1101", name:"Bhavna R Dhrafani", mobile:"", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:0, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:40, ownerType:"Owner", flat:"1102", name:"Bhavna Kherjani", mobile:"9586156818", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"GJ-05-NF-3833", twoReg2:"", twoSticker:"", bicycle:1, designation:""},
+    {sr:41, ownerType:"Rental", flat:"1103", name:"Nehar Kalbande ( Rental )", mobile:"8975096434", carSize:"", fourWCount:0, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"25 BH 97974K", twoReg2:"", twoSticker:"", bicycle:0, designation:""},
+    {sr:42, ownerType:"Owner", flat:"1104", name:"Nirali D Pandya", mobile:"7435921020", carSize:"BIG", fourWCount:1, fourReg:"", fourSticker:"", twoWCount:1, twoReg1:"", twoReg2:"", twoSticker:"", bicycle:1, designation:""}
+  ];
+
+  // ----- કુલ આંકડા (ફ્લેટ 701 અપડેટને કારણે બદલાયેલ) -----
+  const totalResidents = residentsData.length;
+  const totalFourWheelers = residentsData.reduce((sum, r) => sum + (r.fourWCount || 0), 0);
+  const totalTwoWheelers = residentsData.reduce((sum, r) => sum + (r.twoWCount || 0), 0);
+  const totalBicycles = residentsData.reduce((sum, r) => sum + (r.bicycle || 0), 0);
+  const totalOwners = residentsData.filter(r => r.ownerType === "Owner").length;
+  const totalRentals = residentsData.filter(r => r.ownerType === "Rental").length;
+
+  // ----- મોટી / નાની કારની ગણતરી -----
+  let bigCarCount = 0;
+  let smallCarCount = 0;
+  residentsData.forEach(r => {
+    if (r.fourWCount > 0) {
+      if (r.carSize === "BIG") bigCarCount++;
+      else if (r.carSize === "SMALL") smallCarCount++;
+    }
+  });
+
+  // ----- પાર્કિંગ ક્ષમતા (ઉપર 15, ભોંયરું 9) -----
+  const OVERHEAD_SLOTS = 15;
+  const BASEMENT_SLOTS = 9;
+  const TOTAL_CAR_SLOTS = OVERHEAD_SLOTS + BASEMENT_SLOTS; // 24
+  const carDeficit = totalFourWheelers - TOTAL_CAR_SLOTS;
+  const isOverCapacity = carDeficit > 0;
+
+  // હેડર આંકડા (ગુજરાતી)
+  function renderHeaderStats() {
+    const container = document.getElementById('parkingStatsContainer');
+    if (container) {
+      container.innerHTML = `
+        <div class="stat-card"><div class="stat-label">🏢 ઉપરનું પાર્કિંગ</div><div class="stat-value">${OVERHEAD_SLOTS}</div><div class="stat-sub">કાર સ્લોટ</div></div>
+        <div class="stat-card"><div class="stat-label">🚗 ભોંયરું પાર્કિંગ</div><div class="stat-value">${BASEMENT_SLOTS}</div><div class="stat-sub">કાર સ્લોટ</div></div>
+        <div class="stat-card"><div class="stat-label">📌 કુલ સ્લોટ</div><div class="stat-value">${TOTAL_CAR_SLOTS}</div><div class="stat-sub">મહત્તમ ક્ષમતા</div></div>
+        <div class="stat-card"><div class="stat-label">🚘 નોંધાયેલ કાર</div><div class="stat-value">${totalFourWheelers}</div><div class="stat-sub">વાસ્તવિક 4-પૈડા</div></div>
+        <div class="stat-card ${isOverCapacity ? 'over-capacity' : ''}"><div class="stat-label">⚠️ સ્લોટ સ્થિતિ</div><div class="stat-value">${isOverCapacity ? `+${carDeficit}` : `${carDeficit}`}</div><div class="stat-sub">${isOverCapacity ? 'વધારે (ખાધ)' : 'ખાલી સ્લોટ'}</div></div>
+        <div class="stat-card"><div class="stat-label">🏍️ 2-પૈડા</div><div class="stat-value">${totalTwoWheelers}</div><div class="stat-sub">કુલ બાઇક</div></div>
+        <div class="stat-card"><div class="stat-label">🚘 મોટી કાર</div><div class="stat-value">${bigCarCount}</div><div class="stat-sub">BIG</div></div>
+        <div class="stat-card"><div class="stat-label">🚙 નાની કાર</div><div class="stat-value">${smallCarCount}</div><div class="stat-sub">SMALL</div></div>
+      `;
+    }
+    document.getElementById('totalCarsDisplaySpan') && (document.getElementById('totalCarsDisplaySpan').innerText = totalFourWheelers);
+    document.getElementById('deficitSpan') && (document.getElementById('deficitSpan').innerText = carDeficit > 0 ? carDeficit : 0);
+    document.getElementById('totalTwoWheelersSpan') && (document.getElementById('totalTwoWheelersSpan').innerText = totalTwoWheelers);
+    document.getElementById('totalBicyclesSpan') && (document.getElementById('totalBicyclesSpan').innerText = totalBicycles);
+    const rowCounter = document.getElementById('rowCounterDisplay');
+    if (rowCounter) rowCounter.innerHTML = `🏷️ ${totalResidents} રહેવાસી (માલિક:${totalOwners} · ભાડુ:${totalRentals}) · 🚲 સાઇકલ:${totalBicycles}`;
+  }
+
+  // ટેબલ રેન્ડર
+  function renderTable() {
+    const tbody = document.getElementById('dynamicTableBody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    residentsData.forEach(res => {
+      const row = tbody.insertRow();
+      row.insertCell(0).innerText = res.sr;
+      const ownerCell = row.insertCell(1);
+      ownerCell.innerHTML = res.ownerType === 'Owner' ? '<span class="owner-badge">🏠 માલિક</span>' : '<span class="rental-badge">🔑 ભાડુ</span>';
+      row.insertCell(2).innerText = res.flat;
+      row.insertCell(3).innerText = res.name;
+      row.insertCell(4).innerText = res.mobile || '—';
+      row.insertCell(5).innerText = res.carSize || '—';
+      row.insertCell(6).innerText = res.fourWCount;
+      row.insertCell(7).innerText = res.fourReg || '—';
+      row.insertCell(8).innerText = res.fourSticker || '—';
+      row.insertCell(9).innerText = res.twoWCount;
+      row.insertCell(10).innerText = res.twoReg1 || '—';
+      row.insertCell(11).innerText = res.twoReg2 || '—';
+      row.insertCell(12).innerText = res.twoSticker || '—';
+      row.insertCell(13).innerText = res.bicycle;
+      const desCell = row.insertCell(14);
+      desCell.innerHTML = res.designation ? `<span class="designation-tag">${res.designation}</span>` : '—';
+    });
+  }
+
+  // પ્રારંભ
+  function init() {
+    renderHeaderStats();
+    renderTable();
+  }
+  init();
+</script>
+</body>
+</html>
